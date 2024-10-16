@@ -1,0 +1,24 @@
+{%set nb = 0 %}
+{%if list is empty%}
+<h1> tableau vide </h1>
+{% else %}
+<ul>
+    {% for author in list %}
+    {%set nb = nb + author.nbBooks %}
+
+      <li>
+        <a href="{{ path('app_author')}}">
+        <strong>ID:</strong> {{ author.id }}<br>
+      {#<strong>Picture:</strong> <img src="{{ asset (author.picture) }}" alt="{{ author.username }}'s picture" width="100" height="100"><br> #}
+        <strong>Username:</strong> {{ author.username }}<br>
+        <strong>Email:</strong> <a href="mailto:{{ author.email }}">{{ author.email }}</a><br>
+        <strong>Number of Books:</strong> {{ author.nbBooks }}
+      </li>
+      <hr> <!-- Adds a line between each author for better separation -->
+    {% endfor %}
+  </ul>
+  {% endif %}
+  Le nombre d'auteur est : {{list | length}}
+    <br>
+
+  Le nombre de livre est : {{nb }}
