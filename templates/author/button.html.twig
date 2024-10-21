@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Boutons{% endblock %}
+
+{% block body %}
+    <h1>Liste des Boutons</h1>
+
+    <div class="button-list">
+        {% for button in buttons %}
+            <button class="btn btn-primary" type="button">{{ button }}</button>
+        {% else %}
+            <p>Aucun bouton trouvé.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
